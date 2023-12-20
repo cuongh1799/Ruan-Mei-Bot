@@ -103,4 +103,4 @@ Meanwhile ```private synchronized GuildMusicManager getGuildAudioPlayer(Guild gu
 For ```pause```, ```unpause```, ```listTrack```, ```endSession```; I utilize the ```scheduler``` in ```TrackScheduler.java``` which encharge of customzing the currently played stream to pause and unpause, as well as utilizing the ```musicManager``` to return all the keys and list.
 
 ### LavaPlayer UML
-![Image](/assets/LavaPlayer.png)
+![Image](/Assets/LavaPlayer.png)
