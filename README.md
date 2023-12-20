@@ -81,3 +81,25 @@ Example:
         }
     }
 ```
+### LavaPlayer
+Now this is the fun part, let me put it this way
+
+Ruan Mei currently have these ```~``` commands
+```
+~play
+~skip
+~pause
+~unpause
+~list
+~end
+```
+
+The ```private final Map<Long, GuildMusicManager> musicManagerMap = new HashMap<>();``` is literally your Guild song player manager, what this means is each guild Ruan Mei join, it will have a separate ```long``` key according to different guild.
+
+Meanwhile ```private synchronized GuildMusicManager getGuildAudioPlayer(Guild guild)``` , it will get the currenly GuildMusicManger in your guild and return it as musicManager; ```GuildMusicManager musicManager = musicManagerMap.get(guildId)```
+
+```loadAndPlay``` function will handle queuening track, next track and playlist adding.
+
+For ```pause```, ```unpause```, ```listTrack```, ```endSession```; I utilize the ```scheduler``` in ```TrackScheduler.java``` which encharge of customzing the currently played stream to pause and unpause, as well as utilizing the ```musicManager``` to return all the keys and list.
+
+### LavaPlayer UML
