@@ -1,5 +1,7 @@
 # Ruan Mei Bot by Cuong
 
+### DISCLAIMER: THE IMPLEMENTATION OF LAVAPLAYER IS HEAVILY BASED ON THEIR EXAMPLE ON THEIR GITHUB PAGE
+
 ## APIs
 Ruan Mei utilize the JDA API for interacting with discord, as well as using LavaPlayer to play music
 For GUI, Ruan Mei use JavaFx and SceneBuilder
