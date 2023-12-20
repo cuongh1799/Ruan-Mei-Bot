@@ -33,7 +33,7 @@ import java.util.Random;
 public class RuanMeiDiscord extends ListenerAdapter implements EventListener {
     public static void main(String[] args) throws Exception {
 
-    String token = "";
+    String token = "MTE4MjkzMjI1NDI5MzQ5OTk2NA.GWmQ03.y-wC852pehUuJC_l1YatnYpLH5oyajw-Qswvzw";
 
     JDA jda = JDABuilder.createLight(token,
                     GatewayIntent.GUILD_MESSAGES,
@@ -43,15 +43,18 @@ public class RuanMeiDiscord extends ListenerAdapter implements EventListener {
             .addEventListeners(new RuanMeiDiscord())
             .setActivity(Activity.playing("with your pulls"))
             .build();
+
         jda.updateCommands().addCommands(
             Commands.slash("roll", "Roll a number from 1 - 100"),
             Commands.slash("long", "godzilla stuff"),
             Commands.slash("path", "Let Ruan Mei choose a path for you"),
             Commands.slash("ruanmei", "schizo about ruanmei"),
-            Commands.slash("hesitatetopull", "Let Silver Wolf enlighten you"),
-            Commands.slash("pullruanmei", "All roads lead to Ruan Mei")
+            Commands.slash("hesitatetopullsilverwolf", "Let Silver Wolf enlighten you"),
+            Commands.slash("pullruanmei", "All roads lead to Ruan Mei"),
+            Commands.slash("goodbye", "Farewell, may the Trailblaze guide us")
         ).queue();
     }
+
 
     private final AudioPlayerManager playerManager = new DefaultAudioPlayerManager();
     private final Map<Long, GuildMusicManager> musicManagerMap = new HashMap<>();
@@ -209,6 +212,8 @@ public class RuanMeiDiscord extends ListenerAdapter implements EventListener {
     }
 
 
+
+
     @Override
     public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
         long time = System.currentTimeMillis();
@@ -254,7 +259,7 @@ public class RuanMeiDiscord extends ListenerAdapter implements EventListener {
                         ).queue();
                 break;
 
-            case "hesitatetopull":
+            case "hesitatetopullsilverwolf":
                 FileUpload  silverhesitate = FileUpload.fromData(silverwolfpull);
                 event.replyFiles(silverhesitate).queue();
                 break;
@@ -264,6 +269,10 @@ public class RuanMeiDiscord extends ListenerAdapter implements EventListener {
                 event.replyFiles(allroadstoruanmei).queue();
                 break;
 
+            case "goodbye":
+                event.reply("Goodbye, trailblazer").queue();
+                event.getJDA().shutdownNow();
+                break;
         }
     }
 }
