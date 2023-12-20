@@ -1,5 +1,7 @@
 # Ruan Mei Bot by Cuong
 
+### DISCLAIMER: THE IMPLEMENTATION OF LAVAPLAYER IS HEAVILY BASED ON THEIR EXAMPLE ON THEIR GITHUB PAGE
+
 ## APIs
 Ruan Mei utilize the JDA API for interacting with discord, as well as using LavaPlayer to play music
 For GUI, Ruan Mei use JavaFx and SceneBuilder
@@ -103,3 +105,4 @@ Meanwhile ```private synchronized GuildMusicManager getGuildAudioPlayer(Guild gu
 For ```pause```, ```unpause```, ```listTrack```, ```endSession```; I utilize the ```scheduler``` in ```TrackScheduler.java``` which encharge of customzing the currently played stream to pause and unpause, as well as utilizing the ```musicManager``` to return all the keys and list.
 
 ### LavaPlayer UML
+![Image](/Assets/LavaPlayerUML.png)
